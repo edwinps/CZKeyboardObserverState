@@ -102,6 +102,16 @@ open class CZKeyboardObserverState : NSObject {
         self.isObserving = true
     }
     
+    /*
+     Stops observing.
+     Removes the keyboard related notification observers and frees memory.
+     */
+    func stopObserving() {
+        NotificationCenter.default.removeObserver(self)
+        self.delegate = nil
+        self.isObserving = false
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
         self.delegate = nil
