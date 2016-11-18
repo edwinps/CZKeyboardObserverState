@@ -13,11 +13,12 @@ Pod::Spec.new do |s|
   s.author       = "Edwin Peña"
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
-  s.source       = { :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :commit => "30dcb8bc093032fe15e0e3dd12ea3b6c8f43a689" }
+  s.source       = { :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :commit => "d593b9c36ff3522e49cb4598010e264aaaf4d9cd" }
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
+  s.summary = 'CZKeyboardObserverState is a class with one registered, you can listen to keyboard state events'
   s.requires_arc = true
   s.homepage     = "https://github.com/edwinps/CZKeyboardObserverState"
-  s.license      = "MIT (example)"
+  s.license = { :type => 'MIT', :file => 'LICENSE.md' }
   s.exclude_files = "Classes/Exclude"
 
 
