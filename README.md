@@ -12,6 +12,13 @@ For more details take a look at the 'usage' section.
 ## Requirements
 CZKeyboardObserverState needs iOS 8 and higher.
 
+## How to install
+Add this to your CocoaPods Podfile.
+
+    pod 'CZKeyboardObserverState'
+
+## How to use
+Add this to your CocoaPods Podfile.
 #### Example
 
     import CZKeyboardObserverState
