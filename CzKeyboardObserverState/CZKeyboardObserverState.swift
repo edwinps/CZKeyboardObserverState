@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@objc protocol CZKeyboardObserverStateDelegate: class {
+@objc public protocol CZKeyboardObserverStateDelegate: class {
     
     /** 'Keyboard will hide' event.
      - keyboardObserverState: CZKeyboardObserverState instance.
@@ -54,7 +54,7 @@ import UIKit
 public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate {
     
     // singleton instance
-    static let sharedObserver = CZKeyboardObserverState()
+    public static let  sharedObserver = CZKeyboardObserverState()
     open fileprivate(set) var isKeyboardShown = false
     open fileprivate(set) var keyboardSize = CGRect.zero
     // callback delegate
@@ -81,7 +81,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      view: the view.
      delegate: the delegate
      */
-    func startObserving(_ view: UIView, delegate: CZKeyboardObserverStateDelegate) {
+    public func startObserving(_ view: UIView, delegate: CZKeyboardObserverStateDelegate) {
         self.delegate = delegate
         self.initObserver(view)
     }
@@ -106,7 +106,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      Stops observing.
      Removes the keyboard related notification observers and frees memory.
      */
-    func stopObserving() {
+    public func stopObserving() {
         NotificationCenter.default.removeObserver(self)
         self.delegate = nil
         self.isObserving = false
@@ -130,7 +130,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         if userInfo == nil {
             print("notification doesn't contain a userInfo dictionary")
         }else{
-          self.keyboardSize = ((userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
+            self.keyboardSize = ((userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
         }
         delegate.keyboardWillHide!(self, info: userInfo)
         
@@ -213,6 +213,6 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         self.keyboardSize = ((userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
         delegate.keyboardDidChange!(self, info: userInfo)
     }
-
+    
     
 }
