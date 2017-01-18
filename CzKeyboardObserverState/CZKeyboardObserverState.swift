@@ -51,7 +51,7 @@ import UIKit
     
 }
 
-open class CZKeyboardObserverState : NSObject {
+public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate {
     
     // singleton instance
     static let sharedObserver = CZKeyboardObserverState()
