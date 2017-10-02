@@ -63,4 +63,4 @@ You can stop the observer
 
 
 ## License
-CZKeyboardObserverState is licensed under the MIT licence. See the [LICENSE](https://github.com/edwinps/CZKeyboardObserverState/blob/master/LICENSE) for more details.
+CZKeyboardObserverState is licensed under the MIT licence. See the [LICENSE](https://github.com/edwinps/CZCustomLayout/blob/master/LICENSE.md) for more details.
