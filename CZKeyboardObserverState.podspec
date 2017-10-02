@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source  = {
         :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :tag => "1.0.3"
     }
-  s.source_files = 'src/**/*.{h,m}'
+  s.source_files = 'src/**/*.{swift}'
   s.summary = 'CZKeyboardObserverState is a class with one registered, you can listen to keyboard state events'
   s.requires_arc = true
   s.homepage     = "https://github.com/edwinps/CZKeyboardObserverState"
