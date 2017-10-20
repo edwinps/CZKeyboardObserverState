@@ -58,7 +58,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
     open fileprivate(set) var isKeyboardShown = false
     open fileprivate(set) var keyboardSize = CGRect.zero
     // callback delegate
-    fileprivate var delegate: CZKeyboardObserverStateDelegate!
+    fileprivate var delegate: CZKeyboardObserverStateDelegate?
     var isObserving: Bool = false
     
     fileprivate override init() {
@@ -108,7 +108,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      */
     public func stopObserving() {
         NotificationCenter.default.removeObserver(self)
-        self.delegate = nil
+//        self.delegate = nil
         self.isObserving = false
     }
     
@@ -123,7 +123,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      Notification function that gets called when the keyboard will change its frame.
      - notification: the notification instance
      */
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         
         // since we need the information in the dictionary we continuo
         let userInfo = (notification as NSNotification).userInfo;
@@ -134,7 +134,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         }
         
         if delegate?.keyboardWillHide != nil {
-            delegate.keyboardWillHide!(self, info: userInfo)
+            delegate?.keyboardWillHide!(self, info: userInfo)
         }
         
     }
@@ -142,7 +142,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      Notification function that gets called when the keyboard will change its frame.
      - notification: the notification instance
      */
-    func keyboardDidHide(_ notification: Notification) {
+    @objc func keyboardDidHide(_ notification: Notification) {
         
         // since we need the information in the dictionary we continuo
         let userInfo = (notification as NSNotification).userInfo ?? nil;
@@ -153,14 +153,14 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         keyboardSize = CGRect.zero
         
         if delegate?.keyboardDidHide != nil {
-            delegate.keyboardDidHide!(self, info: userInfo)
+            delegate?.keyboardDidHide!(self, info: userInfo)
         }
     }
     /*
      Notification function that gets called when the keyboard will change its frame.
      - notification: the notification instance
      */
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         if !self.isKeyboardShown {
             // since we need the information in the dictionary we continuo
             let userInfo = (notification as NSNotification).userInfo;
@@ -170,7 +170,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
                 self.keyboardSize = ((userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
             }
             if delegate?.keyboardWillShow != nil {
-                delegate.keyboardWillShow!(self, info: userInfo)
+                delegate?.keyboardWillShow!(self, info: userInfo)
             }
         }
     }
@@ -178,7 +178,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      Notification function that gets called when the keyboard will change its frame.
      - notification: the notification instance
      */
-    func keyboardDidShow(_ notification: Notification) {
+    @objc func keyboardDidShow(_ notification: Notification) {
         
         if !isKeyboardShown {
             isKeyboardShown = true
@@ -190,7 +190,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
             self.keyboardSize = ((userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
             
             if delegate?.keyboardDidShow != nil {
-                delegate.keyboardDidShow!(self, info: userInfo)
+                delegate?.keyboardDidShow!(self, info: userInfo)
             }
             
         }
@@ -200,7 +200,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      Notification function that gets called when the keyboard will change its frame.
      - notification: the notification instance
      */
-    func keyboardWillChange(_ notification: Notification) {
+    @objc func keyboardWillChange(_ notification: Notification) {
         
         // since we need the information in the dictionary we continuo
         let userInfo = (notification as NSNotification).userInfo;
@@ -211,14 +211,14 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         }
         
         if delegate?.keyboardWillChange != nil {
-            delegate.keyboardWillChange!(self, info: userInfo)
+            delegate?.keyboardWillChange!(self, info: userInfo)
         }
     }
     /*
      Notification function that gets called when the keyboard will change its frame.
      - notification: the notification instance
      */
-    func keyboardDidChange(_ notification: Notification) {
+    @objc func keyboardDidChange(_ notification: Notification) {
         
         // since we need the information in the dictionary we can cancel if there is none
         guard let userInfo = (notification as NSNotification).userInfo else {
@@ -228,10 +228,9 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         self.keyboardSize = ((userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
         
         if delegate?.keyboardDidChange != nil {
-            delegate.keyboardDidChange!(self, info: userInfo)
+            delegate?.keyboardDidChange!(self, info: userInfo)
         }
         
     }
-    
     
 }
