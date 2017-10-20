@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , CZKeyboardObserverStateDelegate{
+class ViewController: UIViewController, CZKeyboardObserverStateDelegate {
     
     // textView used to trigger the keyboard events
     @IBOutlet weak var textView: UITextView!
@@ -45,35 +45,35 @@ class ViewController: UIViewController , CZKeyboardObserverStateDelegate{
     }
     
     //MARK: CZKeyboardObserverState
-    func keyboardWillHide(_ keyboardObserverState: CZKeyboardObserverState,info: [AnyHashable: Any]?){
-        NSLog("keyboardWillHide \(info)")
+    func keyboardWillHide(_ keyboardObserverState: CZKeyboardObserverState, info: [AnyHashable: Any]?){
+        NSLog("keyboardWillHide \(String(describing: info))")
         constraintBtt.constant = 20
         stateLabel.text = "keyboardWillHide"
     }
     
-    func keyboardDidHide(_ keyboardObserverState: CZKeyboardObserverState,info: [AnyHashable: Any]?){
-        NSLog("keyboardDidHide \(info)")
+    func keyboardDidHide(_ keyboardObserverState: CZKeyboardObserverState, info: [AnyHashable: Any]?){
+        NSLog("keyboardDidHide \(String(describing: info))")
         stateLabel.text = "keyboardDidHide"
     }
     
     func keyboardWillShow(_ keyboardObserverState: CZKeyboardObserverState,info: [AnyHashable: Any]?){
-        NSLog("keyboardWillShow \(info)")
+        NSLog("keyboardWillShow \(String(describing: info))")
         stateLabel.text = "keyboardWillShow"
         constraintBtt.constant += keyboardObserverState.keyboardSize.height
     }
     
     func keyboardDidShow(_ keyboardObserverState: CZKeyboardObserverState,info: [AnyHashable: Any]?){
-        NSLog("keyboardDidShow \(info)")
+        NSLog("keyboardDidShow \(String(describing: info))")
         stateLabel.text = "keyboardDidShow"
     }
     
     func keyboardWillChange(_ keyboardObserverState: CZKeyboardObserverState,info: [AnyHashable: Any]?){
-        NSLog("keyboardWillChange \(info)")
+        NSLog("keyboardWillChange \(String(describing: info))")
         stateLabel.text = "keyboardWillChange"
     }
     
     func keyboardDidChange(_ keyboardObserverState: CZKeyboardObserverState,info: [AnyHashable: Any]){
-        NSLog("keyboardDidChange \(info)")
+        NSLog("keyboardDidChange \(String(describing: info))")
         stateLabel.text = "keyboardDidChange"
     }
 }

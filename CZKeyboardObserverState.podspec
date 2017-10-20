@@ -8,15 +8,16 @@
 
 Pod::Spec.new do |s|
   s.name         = "CZKeyboardObserverState"
-  s.version      = "1.0.3"
+  s.version      = "1.1.0"
   s.summary      = ""
   s.author       = "Edwin Peña"
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
   s.source  = {
-        :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :tag => "1.0.3"
+        :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :tag => "1.1.0"
     }
   s.source_files = 'src/**/*.{swift}'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.summary = 'CZKeyboardObserverState is a class with one registered, you can listen to keyboard state events'
   s.requires_arc = true
   s.homepage     = "https://github.com/edwinps/CZKeyboardObserverState"
