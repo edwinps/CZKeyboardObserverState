@@ -108,7 +108,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      */
     public func stopObserving() {
         NotificationCenter.default.removeObserver(self)
-//        self.delegate = nil
+        //        self.delegate = nil
         self.isObserving = false
     }
     
@@ -124,7 +124,6 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      - notification: the notification instance
      */
     @objc func keyboardWillHide(_ notification: Notification) {
-        
         // since we need the information in the dictionary we continuo
         let userInfo = (notification as NSNotification).userInfo;
         if userInfo == nil {
@@ -143,7 +142,6 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      - notification: the notification instance
      */
     @objc func keyboardDidHide(_ notification: Notification) {
-        
         // since we need the information in the dictionary we continuo
         let userInfo = (notification as NSNotification).userInfo ?? nil;
         if userInfo == nil {
@@ -161,6 +159,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      - notification: the notification instance
      */
     @objc func keyboardWillShow(_ notification: Notification) {
+        
         if !self.isKeyboardShown {
             // since we need the information in the dictionary we continuo
             let userInfo = (notification as NSNotification).userInfo;
@@ -179,7 +178,6 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      - notification: the notification instance
      */
     @objc func keyboardDidShow(_ notification: Notification) {
-        
         if !isKeyboardShown {
             isKeyboardShown = true
             // since we need the information in the dictionary we can cancel if there is none
@@ -201,7 +199,6 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      - notification: the notification instance
      */
     @objc func keyboardWillChange(_ notification: Notification) {
-        
         // since we need the information in the dictionary we continuo
         let userInfo = (notification as NSNotification).userInfo;
         if userInfo == nil {
@@ -219,7 +216,6 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
      - notification: the notification instance
      */
     @objc func keyboardDidChange(_ notification: Notification) {
-        
         // since we need the information in the dictionary we can cancel if there is none
         guard let userInfo = (notification as NSNotification).userInfo else {
             print("notification doesn't contain a userInfo dictionary")
