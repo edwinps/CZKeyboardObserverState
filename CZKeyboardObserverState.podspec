@@ -8,13 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name         = "CZKeyboardObserverState"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = ""
   s.author       = "Edwin Peña"
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
   s.source  = {
-        :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :tag => "1.1.1"
+        :git => "https://github.com/edwinps/CZKeyboardObserverState.git", :tag => "1.1.2"
     }
   s.source_files = 'src/**/*.{swift}'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }

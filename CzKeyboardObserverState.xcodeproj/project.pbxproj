@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F627C751F82336700007355 /* CZKeyboardObserverState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F627C741F82336700007355 /* CZKeyboardObserverState.swift */; };
+		9F0D82BA1F9B841400D4DB90 /* CZKeyboardObserverState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0D82B91F9B841400D4DB90 /* CZKeyboardObserverState.swift */; };
+		9F0D82BC1F9B846600D4DB90 /* CZKeyboardObserverState.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9F0D82BB1F9B846600D4DB90 /* CZKeyboardObserverState.podspec */; };
 		9F7547461DDDCC14000943C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7547451DDDCC14000943C6 /* AppDelegate.swift */; };
 		9F7547481DDDCC14000943C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7547471DDDCC14000943C6 /* ViewController.swift */; };
 		9F75474B1DDDCC14000943C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7547491DDDCC14000943C6 /* Main.storyboard */; };
@@ -27,7 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9F627C741F82336700007355 /* CZKeyboardObserverState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZKeyboardObserverState.swift; sourceTree = "<group>"; };
+		9F0D82B91F9B841400D4DB90 /* CZKeyboardObserverState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZKeyboardObserverState.swift; path = src/CZKeyboardObserverState.swift; sourceTree = SOURCE_ROOT; };
+		9F0D82BB1F9B846600D4DB90 /* CZKeyboardObserverState.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CZKeyboardObserverState.podspec; sourceTree = "<group>"; };
 		9F7547421DDDCC14000943C6 /* CzKeyboardObserverState.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CzKeyboardObserverState.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7547451DDDCC14000943C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F7547471DDDCC14000943C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		9F627C731F82331F00007355 /* scr */ = {
 			isa = PBXGroup;
 			children = (
-				9F627C741F82336700007355 /* CZKeyboardObserverState.swift */,
+				9F0D82B91F9B841400D4DB90 /* CZKeyboardObserverState.swift */,
 			);
 			name = scr;
 			path = CzKeyboardObserverState;
@@ -70,6 +72,7 @@
 		9F7547391DDDCC14000943C6 = {
 			isa = PBXGroup;
 			children = (
+				9F0D82BB1F9B846600D4DB90 /* CZKeyboardObserverState.podspec */,
 				9F627C731F82331F00007355 /* scr */,
 				9F7547441DDDCC14000943C6 /* CzKeyboardObserverState */,
 				9F7547591DDDCC15000943C6 /* CzKeyboardObserverStateTests */,
@@ -195,6 +198,7 @@
 			files = (
 				9F7547501DDDCC14000943C6 /* LaunchScreen.storyboard in Resources */,
 				9F75474D1DDDCC14000943C6 /* Assets.xcassets in Resources */,
+				9F0D82BC1F9B846600D4DB90 /* CZKeyboardObserverState.podspec in Resources */,
 				9F75474B1DDDCC14000943C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,9 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F627C751F82336700007355 /* CZKeyboardObserverState.swift in Sources */,
 				9F7547481DDDCC14000943C6 /* ViewController.swift in Sources */,
 				9F7547461DDDCC14000943C6 /* AppDelegate.swift in Sources */,
+				9F0D82BA1F9B841400D4DB90 /* CZKeyboardObserverState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
