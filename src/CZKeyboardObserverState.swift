@@ -92,12 +92,12 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         
         NotificationCenter.default.removeObserver(self)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: Notification.Name.UIKeyboardDidHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: Notification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange), name: Notification.Name.UIKeyboardDidChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange), name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
         
         self.isObserving = true
     }
@@ -129,7 +129,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         if userInfo == nil {
             print("notification doesn't contain a userInfo dictionary")
         }else{
-            self.keyboardSize = ((userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
+            self.keyboardSize = ((userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
         }
         
         if delegate?.keyboardWillHide != nil {
@@ -166,7 +166,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
             if userInfo == nil {
                 print("notification doesn't contain a userInfo dictionary")
             }else{
-                self.keyboardSize = ((userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
+                self.keyboardSize = ((userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
             }
             if delegate?.keyboardWillShow != nil {
                 delegate?.keyboardWillShow!(self, info: userInfo)
@@ -185,7 +185,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
                 print("notification doesn't contain a userInfo dictionary")
                 return
             }
-            self.keyboardSize = ((userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
+            self.keyboardSize = ((userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
             
             if delegate?.keyboardDidShow != nil {
                 delegate?.keyboardDidShow!(self, info: userInfo)
@@ -204,7 +204,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
         if userInfo == nil {
             print("notification doesn't contain a userInfo dictionary")
         }else{
-            self.keyboardSize = ((userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
+            self.keyboardSize = ((userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) ?? CGRect.zero
         }
         
         if delegate?.keyboardWillChange != nil {
@@ -221,7 +221,7 @@ public class CZKeyboardObserverState : NSObject,CZKeyboardObserverStateDelegate 
             print("notification doesn't contain a userInfo dictionary")
             return
         }
-        self.keyboardSize = ((userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
+        self.keyboardSize = ((userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
         
         if delegate?.keyboardDidChange != nil {
             delegate?.keyboardDidChange!(self, info: userInfo)
